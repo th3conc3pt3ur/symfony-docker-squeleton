@@ -19,9 +19,4 @@ class AppController extends AbstractController
             'test' => $test
         ]);
     }
-    #[Route('/test', name: 'app')]
-    public function test(): Response
-    {
-        return new Response("coucou");
-    }
 }
