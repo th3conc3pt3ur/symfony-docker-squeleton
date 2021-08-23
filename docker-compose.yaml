@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    container_name: www_docker_symfony
+    ports: 
+      - '8741:80'
+    volumes:
+      - ./php/vhosts:/etc/apache2/sites-enabled
+      - ./app:/var/www
+  db:
+    image: mariadb:latest
+    container_name: db_docker_symfony
+    ports: 
+      - '4000:3306'
+    volumes:
+        - ./db-data:/var/lib/mysql
+    environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    restart: always
+    
